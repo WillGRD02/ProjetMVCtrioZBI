@@ -5,7 +5,7 @@
 <h1>Modification d'un utilisateut <?= $user["name"] ?>&nbsp;:</h1>
 
 <form action="index.php?controller=user&action=updateOne" method="POST">
-    <input type="text" name="Prénom" placeholder="Prénom de l'utilisateur" value="<?= $user["firstname"] ?>">
+    <input type="text" name="prenom" placeholder="Prénom de l'utilisateur" value="<?= $user["firstname"] ?>">
 
     <input type="text" name="nom" placeholder="Nom de l'utilisateur" value="<?= $user["lastname"] ?>">
 
