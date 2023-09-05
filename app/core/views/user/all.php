@@ -16,9 +16,10 @@
         <tbody>
             <?php foreach($results as $user){ ?>
                 <tr>
-                    <td><?= $user["name"]; ?></td>
-                    <td><?= $user["description"]; ?></td>
-                    <td><?= $user["price"]; ?></td>
+                    <td><?= $user["prenom"]; ?></td>
+                    <td><?= $user["nom"]; ?></td>
+                    <td><?= $user["email"]; ?></td>
+                    <td><?= $user["role"]; ?></td>
                     <td>
                         <form method="POST" action="index.php?controller=user&action=showUpdateForm">
                             <input type="hidden" value="<?= $user["id"]; ?>" name="updateID">
@@ -41,4 +42,3 @@
         base sur l'index) : à vous de le mettre à jour en prenant en compte
         le controlleur et l'action adéquate.
     -->
-    <p><a href="index.php?controller=book&action=showAddForm" title="Ajouter un livre à notre bibliotheque">Ajouter un livre</a></p>

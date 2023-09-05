@@ -5,13 +5,13 @@
 <h1>Ajout d'un utilisateur&nbsp;:</h1>
 
 <form method="POST" action="index.php?controller=user&action=add">
-    <input type="text" name="prenom" placeholder="Nom d'utilisateur">
-    <input type="text" name="nom" placeholder="Nom d'utilisateur">
-    <input type="email" name="email" placeholder="Nom d'utilisateur">
-    <input type="password" name="password" placeholder="Nom d'utilisateur">
+    <input type="text" name="prenom" placeholder="prenom">
+    <input type="text" name="nom" placeholder="nom">
+    <input type="email" name="email" placeholder="email">
+    <input type="password" name="password" placeholder="mot de passe">
     <select name="role">  
-        <option value="visitor">utilisateur</option>
-        <option value="admin">Administrateur</option>
+        <option value="0">utilisateur</option>
+        <option value="1">Administrateur</option>
     </select>
     <input type="submit" value="Envoyer">
 </form>

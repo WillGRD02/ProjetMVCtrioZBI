@@ -41,7 +41,7 @@ function update($prenom, $nom, $email, $password, $role, $userID){
     require_once('dbConnect.php');
 
     if($pdoConn){
-        $query = "UPDATE users SET nom='$nom', prenom='$prenom', mail='$email', mdp='$password', role='$role', id='$userID";
+        $query = "UPDATE users SET nom='$nom', prenom='$prenom', email='$email', mdp='$password', role='$role', id='$userID'";
 
         $exec = $pdoConn->query($query);
 
@@ -86,14 +86,14 @@ function deleteBy($id){
     }
 }
 
-function addOne($titre, $desc, $prix){
+function addOne($nom, $prenom, $email, $password, $role){
     // Récupération de la connexion à la base de données
     require_once("dbConnect.php");
 
     // Si la connexion à la base de données est effective
     if($pdoConn){
         // Stockage de la requête d'ajout au sein de la variable $query.
-        $query = "INSERT INTO users (nom, prenom, mail, mdp, role) VALUES ('$nom', '$prenom', '$email' ,'$password' ,'$role')";
+        $query = "INSERT INTO users (nom, prenom, email, mdp, role) VALUES ('$nom', '$prenom', '$email' ,'$password' ,'$role')";
 
         // Execution de la requête sur la base de données.
         // Stockage du résultat de l'exécution dans la variable $execution.

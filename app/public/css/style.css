@@ -3,8 +3,34 @@
     padding: 0;
 }
 
+body{
+    /* background-color: red; */
+}
+
 form{
     display: flex;
-    flex-direction: column;
     max-width: 500px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+nav menu{
+    display: flex;
+}
+
+nav menu li{
+    text-decoration: none;
+    list-style: none;
+}
+
+nav menu a{
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+nav menu a:hover{
+    background: rgb(167, 167, 167);
 }

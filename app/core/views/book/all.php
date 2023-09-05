@@ -4,6 +4,8 @@
 
 <h1>Les ouvrages de notre bibliothèque&nbsp;:</h1>
 
+<a class="userListLink" href="index.php?controller=user&action=all">Voir tout les utilisateurs</a>
+
 <table border=1>
         <thead>
             <th>Titre</th>
