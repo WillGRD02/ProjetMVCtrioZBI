@@ -16,18 +16,18 @@
         <tbody>
             <?php foreach($results as $user){ ?>
                 <tr>
-                    <td><?= $book["name"]; ?></td>
-                    <td><?= $book["description"]; ?></td>
-                    <td><?= $book["price"]; ?></td>
+                    <td><?= $user["name"]; ?></td>
+                    <td><?= $user["description"]; ?></td>
+                    <td><?= $user["price"]; ?></td>
                     <td>
-                        <form method="POST" action="index.php?controller=book&action=showUpdateForm">
-                            <input type="hidden" value="<?= $book["id"]; ?>" name="updateID">
+                        <form method="POST" action="index.php?controller=user&action=showUpdateForm">
+                            <input type="hidden" value="<?= $user["id"]; ?>" name="updateID">
                             <input type="submit" value="📝">
                         </form>
                     </td>
                     <td>
-                        <form method="POST" action="index.php?controller=book&action=delete">
-                            <input type="hidden" value="<?= $book["id"]; ?>" name="deleteID">
+                        <form method="POST" action="index.php?controller=user&action=delete">
+                            <input type="hidden" value="<?= $user["id"]; ?>" name="deleteID">
                             <input type="submit" value="🗑️">
                         </form>
                     </td>
