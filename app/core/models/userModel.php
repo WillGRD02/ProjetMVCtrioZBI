@@ -110,10 +110,12 @@ function addOne($nom, $prenom, $email, $password, $role){
 function conn($userN, $userMdp){
 
     require_once('dbConnect.php'); 
-    $connection = $database->prepare("SELECT * FROM users WHERE nom = :nom AND mdp = :password"); //On prépare la requete
+    $connection = $pdoConn->prepare("SELECT * FROM users WHERE nom = :nom AND mdp = :password"); //On prépare la requete
     $connection->bindParam(':nom', $userN);   //On ajoute les paramétres à la requete
     $connection->bindParam(':password', $userMdp);    //On ajoute les paramétres à la requete
 
     $connection->execute();    //On execute la requete
     $isConnected = $connection->rowCount();    //On compte les lignes de la requete
+
+    return [$isConnected, $connection];
 }

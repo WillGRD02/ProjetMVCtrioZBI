@@ -39,24 +39,31 @@ function showAddForm() {
 require_once ('./app/core/views/user/add.php');
 }
 
-function userConnection($email, $mdp) {
-        require_once ('.app/core/models/userModel.php');
-        $email = $_POST["email"];
-        $mdp = $_POST["mdp"];
-        conn($email, $mdp);
-        if(!empty($user) && !empty($mdp)){
-            $connection = $databas->prepare;
-            $connection->bindParam('email', $email, PDO::PARAM_STR, 255);
-            $connection->bindParam('email', $mdp, PDO::PARAM_STR, 255);
+function userConnection() {
+    require_once ('./app/core/models/userModel.php');
+    $email = $_POST["email"];
+    $mdp = $_POST["mdp"];
+    $connexionVerif = conn($email, $mdp);
 
-            $connection->execute();
-            $isConnected = $connection->rowCount();
+    if($connexionVerif['1'] === 1){
 
-            if($isConnected === 1){
-                $_SESSION['email'] = $email && $_SESSION['mdp'] = $mdp;
-                header('Location: index.php?controller=book&action=all');
-            }else{
-                // header('Location:');
-            }
-        }
+        session_start();
+
+        $_SESSION['prenom'] = $connexionVerif['2']['prenom'];
+        $_SESSION['nom'] = $connexionVerif['2']['nom'];
+        $_SESSION['email'] = $connexionVerif['2']['email'];
+        $_SESSION['role'] = $connexionVerif['2']['role'];
+
+        var_dump($_SESSION);
+
+        header('Location: index.php?controller=user&action=all');
+    }else{
+        // header('Location:');
+    }
+ 
 };
+
+function showConnForm(){
+    require_once ('./app/core/views/user/connexion.php');
+    
+}
