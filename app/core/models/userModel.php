@@ -107,15 +107,20 @@ function addOne($nom, $prenom, $email, $password, $role){
     }
 }
 
-function conn($userN, $userMdp){
+function conn($email, $mdp){
+    require_once("dbConnect.php");
 
-    require_once('dbConnect.php'); 
-    $connection = $pdoConn->prepare("SELECT * FROM users WHERE nom = :nom AND mdp = :password"); //On prépare la requete
-    $connection->bindParam(':nom', $userN);   //On ajoute les paramétres à la requete
-    $connection->bindParam(':password', $userMdp);    //On ajoute les paramétres à la requete
+    if($pdoConn){
+        $query = "SELECT * FROM users WHERE email='$email' AND mdp='$mdp'";
 
-    $connection->execute();    //On execute la requete
-    $isConnected = $connection->rowCount();    //On compte les lignes de la requete
+        $exec = $pdoConn->query($query);
 
-    return [$isConnected, $connection];
-}
+        if($exec != false){
+            session_start();
+            $_SESSION["connected"] = TRUE;
+            header('Location: index.php?controller=user&action=all');
+            
+        }else{
+
+        }
+}};

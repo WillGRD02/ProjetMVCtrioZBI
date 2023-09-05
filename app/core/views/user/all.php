@@ -4,10 +4,12 @@
 
 <h1>Listes des utilisateurs&nbsp;:</h1>
 
+<a class="userListLink" href="index.php?controller=book&action=all">Voir tout les livres</a>
+
 <table border=1>
         <thead>
-            <th>Prénom</th>
             <th>Nom</th>
+            <th>Prénom</th>
             <th>email</th>
             <th>roles</th>
             <th>Modifier</th>
@@ -16,8 +18,8 @@
         <tbody>
             <?php foreach($results as $user){ ?>
                 <tr>
-                    <td><?= $user["prenom"]; ?></td>
                     <td><?= $user["nom"]; ?></td>
+                    <td><?= $user["prenom"]; ?></td>
                     <td><?= $user["email"]; ?></td>
                     <td><?= $user["role"]; ?></td>
                     <td>

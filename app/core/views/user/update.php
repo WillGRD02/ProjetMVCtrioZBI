@@ -2,12 +2,12 @@
     $pageTitle = "Modification d'un utilisateur";
 ?>
 
-<h1>Modification de l'utilisateur <?= $user["prenom"].' '.$user["nom"] ?>&nbsp;:</h1>
+<h1>Modification de l'utilisateur <?= $user["nom"].' '.$user["prenom"] ?>&nbsp;:</h1>
 
 <form action="index.php?controller=user&action=updateOne" method="POST">
-    <input type="text" name="prenom" placeholder="Prénom de l'utilisateur" value="<?= $user["prenom"] ?>">
-
     <input type="text" name="nom" placeholder="Nom de l'utilisateur" value="<?= $user["nom"] ?>">
+    
+    <input type="text" name="prenom" placeholder="Prénom de l'utilisateur" value="<?= $user["prenom"] ?>">
 
     <input type="text" name="email" placeholder="email de l'utilisateur" value="<?= $user["email"] ?>">
 

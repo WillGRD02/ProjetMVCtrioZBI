@@ -48,22 +48,25 @@ function userConnection() {
     if($connexionVerif['1'] === 1){
 
         session_start();
-
+        $_SESSION["connected"] = TRUE;
         $_SESSION['prenom'] = $connexionVerif['2']['prenom'];
         $_SESSION['nom'] = $connexionVerif['2']['nom'];
         $_SESSION['email'] = $connexionVerif['2']['email'];
         $_SESSION['role'] = $connexionVerif['2']['role'];
 
-        var_dump($_SESSION);
-
-        header('Location: index.php?controller=user&action=all');
+        header('Location: index.php?controller=book&action=all');
     }else{
-        // header('Location:');
+        // La connexion a échoué, vous pouvez gérer cela ici (par exemple, afficher un message d'erreur).
     }
- 
-};
+}
 
 function showConnForm(){
     require_once ('./app/core/views/user/connexion.php');
     
+}
+
+function deconnexion(){
+    session_start();
+    session_unset();
+    session_destroy();
 }
