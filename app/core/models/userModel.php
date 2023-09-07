@@ -114,11 +114,10 @@ function conn($email, $mdp){
         $query = "SELECT * FROM users WHERE email='$email' AND mdp='$mdp'";
 
         $exec = $pdoConn->query($query);
-
-        if($exec != false){
-            session_start();
-            $_SESSION["connected"] = TRUE;
-            header('Location: index.php?controller=user&action=all');
+        
+        if($exec){
+            $user = $exec->fetch(PDO::FETCH_ASSOC);
+            return [1, $user];
             
         }else{
 

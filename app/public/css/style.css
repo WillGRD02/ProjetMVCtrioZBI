@@ -1,15 +1,64 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
 body{
-    /* background-color: red; */
+    font-family: 'Roboto';
+    margin: 0;
+    padding: 0;
+
 }
 
+main{
+
+    text-align: center;
+    max-width: 1040px;
+    margin: 2rem auto 0;
+
+}
+
+
 form{
+    margin: 0 auto;
     display: flex;
-    max-width: 500px;
+    flex-direction: column;
+    align-items: center;
+    max-width: fit-content;
+}
+
+form div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+form div textarea{
+    padding: 3px;
+}
+
+
+form div input, form div textarea{
+    max-width: 200px;
+    width: 100%;
+    margin-bottom: 1rem;
+
+}
+
+form div select{
+    max-width: 200px;
+    width: 100%;
+    margin-bottom: 1rem;
+
+}
+
+form input#submit{
+    width: 100%;
+    max-width: 150px;
+}
+
+header{
+    background-color: #F0F0F0;
+    /* position: fixed; */
+
 }
 
 nav {
@@ -19,6 +68,7 @@ nav {
 
 nav menu{
     display: flex;
+    margin: 0;
 }
 
 nav menu li{
@@ -28,9 +78,37 @@ nav menu li{
 
 nav menu a{
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 1.5rem 1rem;
+    color: black;
+    text-decoration: none;
 }
 
 nav menu a:hover{
     background: rgb(167, 167, 167);
 }
+
+table{
+    margin: 0 auto;
+    background-color: black;
+}
+td{
+    background-color: white;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+th{
+    background-color: white;
+    padding: 0.5rem;
+    text-align: center;
+
+}
+
+a.userListLink{
+    display: block;
+    margin-top: 2rem;
+}
+
+
+
+

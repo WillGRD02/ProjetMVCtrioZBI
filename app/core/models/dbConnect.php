@@ -2,7 +2,7 @@
 
     // Informations permettant d'établir une connexion à la base de données intitulée mesLivres.
     $env = "localhost";
-    $dbName = "mesLivres";
+    $dbName = "meslivres";
     $dbUser = "root";
     $dbPwd = "";
 

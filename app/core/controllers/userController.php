@@ -45,16 +45,18 @@ function userConnection() {
     $mdp = $_POST["mdp"];
     $connexionVerif = conn($email, $mdp);
 
-    if($connexionVerif['1'] === 1){
-
+    if($connexionVerif['0'] === 1){
+        
         session_start();
         $_SESSION["connected"] = TRUE;
-        $_SESSION['prenom'] = $connexionVerif['2']['prenom'];
-        $_SESSION['nom'] = $connexionVerif['2']['nom'];
-        $_SESSION['email'] = $connexionVerif['2']['email'];
-        $_SESSION['role'] = $connexionVerif['2']['role'];
+        $_SESSION['prenom'] = $connexionVerif['1']['prenom'];
+        $_SESSION['nom'] = $connexionVerif['1']['nom'];
+        $_SESSION['email'] = $connexionVerif['1']['email'];
+        $_SESSION['role'] = $connexionVerif['1']['role'];
+        $_SESSION['id'] = $connexionVerif['1']['id'];
 
-        header('Location: index.php?controller=book&action=all');
+            header('Location: index.php?controller=book&action=all');
+ 
     }else{
         // La connexion a échoué, vous pouvez gérer cela ici (par exemple, afficher un message d'erreur).
     }
@@ -66,7 +68,9 @@ function showConnForm(){
 }
 
 function deconnexion(){
-    session_start();
+    // session_start();
     session_unset();
     session_destroy();
+    header("Location: index.php?controller=".$_GET['controller']."&action=all");
+
 }
